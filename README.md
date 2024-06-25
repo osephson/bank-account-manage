@@ -19,8 +19,8 @@ Before you begin, make sure you have the following installed:
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-repo-url/nestjs-application.git
-cd nestjs-application
+git clone https://github.com/osephson/bank-account-manage.git
+cd bank-account-manage
 ```
 
 ### Set Up the Database
