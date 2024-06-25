@@ -1,0 +1,50 @@
+<h2 class="text-3xl font-bold mb-6 text-center text-white">Overview</h2>
+<div class="overflow-x-auto">
+  <table
+    class="min-w-full divide-y divide-gray-800 bg-white rounded-lg shadow-md"
+  >
+    <thead class="bg-black text-white">
+      <tr>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider"
+        >
+          Name
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider"
+        >
+          Account Number
+        </th>
+        <th
+          scope="col"
+          class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider"
+        >
+          Available Balance
+        </th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      <tr *ngFor="let account of accounts" class="hover:bg-gray-100">
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+          <a
+            [routerLink]="['/accounts', account._id]"
+            class="text-black hover:text-blue-500 transition duration-150 ease-in-out inline-block mr-2 lg:text-lg md:text-sm"
+            >{{ account.name }}</a
+          >
+        </td>
+        <td
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 lg:text-lg md:text-sm"
+        >
+          {{ account.accountNumbers.masked }}
+        </td>
+        <td
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-700 lg:text-lg md:text-sm"
+        >
+          {{ account.balance.available | currency : account.balance.currency }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

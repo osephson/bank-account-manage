@@ -1,0 +1,38 @@
+<body class="m-0 p-0">
+  <nav class="bg-black text-white px-6 py-4 shadow-md">
+    <div class="flex justify-start gap-10 items-center">
+      <a
+        routerLink="/accounts"
+        class="text-lg font-semibold hover:text-gray-200 transition duration-150 ease-in-out"
+        >Overview</a
+      >
+      <div class="relative">
+        <button
+          class="text-lg font-medium transition duration-150 ease-in-out cursor-pointer bg-gray-900 text-white rounded-full px-4 py-2"
+          (click)="showDropdown = !showDropdown"
+        >
+          Accounts
+          <i class="fas fa-chevron-down ml-2 text-lg"></i>
+        </button>
+        <ul
+          *ngIf="showDropdown"
+          class="absolute mt-2 w-48 py-2 bg-gray-900 shadow-md rounded z-10"
+        >
+          <li *ngFor="let account of accounts" class="hover:bg-gray-800">
+            <a
+              [routerLink]="['/accounts', account._id]"
+              class="block px-4 py-2 text-white"
+              >{{ account.name }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div
+    class="container mx-auto px-4 sm:px-6 lg:px-8 py-4"
+    (mouseenter)="showDropdown = false"
+  >
+    <router-outlet></router-outlet>
+  </div>
+</body>
